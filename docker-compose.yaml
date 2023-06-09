@@ -1,0 +1,23 @@
+version: '3'
+services:
+    seru-postgres:
+        image: postgres:15-alpine
+        ports:
+            - 5432:5432
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=Advent777
+            - POSTGRES_DB=seru
+    seru-backend:
+        build: .
+        ports:
+          - 8080:8080
+        environment:
+            - DB_USER=postgres
+            - DB_PASSWORD=Advent777
+            - DB_HOST=seru-postgres
+            - DB_PORT=5432
+            - DB_DATABASE=seru
+        depends_on:
+            - seru-postgres
+        restart: "on-failure"

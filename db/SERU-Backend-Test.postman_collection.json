@@ -1,0 +1,962 @@
+{
+	"info": {
+		"_postman_id": "21523eeb-2dba-47ab-808f-14be397fe876",
+		"name": "SERU-Backend-Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20779011"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"daniel\",\n    \"email\":\"daniel@gmail.com\",\n    \"is_admin\":true,\n    \"password\":\"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/signup",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"daniel@gmail.com\",\n    \"password\":\"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/signin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle-Brands",
+			"item": [
+				{
+					"name": "POST vehicles brands",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODgzNDM3LCJleHAiOjE2ODU5Njk4Mzd9.r_Fur7McxQzkTocSTPKC9KGNYkfW9yedDroP5yfld9A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"honda\",\n    \"country\":\"Japan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_brands",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles Brand",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_brands?limit=5",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_brands"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles Brand Query Params",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_brands",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicles Brand by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_brands",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH vehicles brands",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"B-M-W\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_brands/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_brands",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vehicles Brand by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_brands/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_brands",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle-Types",
+			"item": [
+				{
+					"name": "POST vehicles types",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"BMW\",\n    \"country\":\"Germany\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_brands",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles type",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_types",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles Types Query Params",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_types?brand_id=1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_types"
+							],
+							"query": [
+								{
+									"key": "brand_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicles Types by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_types/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_types",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH vehicles types",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"SUV\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_types/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_types",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vehicles Types by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_types/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_types",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle-Models",
+			"item": [
+				{
+					"name": "POST vehicles Models",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"ojek\",\n    \"type_id\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_models",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_models"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles Models",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_models",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_models"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles Models Query Params",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_models?name=camry",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_models"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "camry"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicles Model by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_models/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_models",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH vehicles Models",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"RAV4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_models/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_models",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vehicles Models by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_types/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_types",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle-Years",
+			"item": [
+				{
+					"name": "POST vehicles Years",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"year\":\"2021\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_years",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_years"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles Years",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_years",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_years"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles Years Query Params",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_years?name=camry",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_years"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "camry"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicles Years by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_years/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_years",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH vehicles Years",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"RAV4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_years/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_years",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vehicles Years by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_years/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_years",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Price-List",
+			"item": [
+				{
+					"name": "POST Price-List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"price\": 500000,\n   \"currency\": \"IDR\",\n   \"year_id\": 1,\n   \"model_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/price_list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"price_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Price-List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/price_list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"price_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Price-List Query params",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/price_list?pmax=200&pmin=50 ",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"price_list"
+							],
+							"query": [
+								{
+									"key": "pmax",
+									"value": "200"
+								},
+								{
+									"key": "pmin",
+									"value": "50 "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Price-List by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/price_list/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"price_list",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH Price-list Years",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"RAV4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/price_list/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"price_list",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Price-List by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1ODY4MTAzLCJleHAiOjE2ODU5NTQ1MDN9.Q2oCbCzyD1y5V_vh2TfwDKSu-8q8I8hOzwSYf2iqI8o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/vehicle_years/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"vehicle_years",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
