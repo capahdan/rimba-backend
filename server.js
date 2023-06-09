@@ -35,6 +35,9 @@ db.sequelize.sync()
   // routes
   require('./src/routes/auth.routes')(app);
   require('./src/routes/user.routes')(app);
+  require('./src/routes/customers.routes')(app);
+  require('./src/routes/sales.routes')(app);
+  require('./src/routes/items.routes')(app);
 
   
   app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))

@@ -1,5 +1,5 @@
 const db = require("../models");
-const Answers = db.answers;
+const Items = db.items;
 const Op = db.Sequelize.Op;
 
 const getPagination = (page, size) => {
@@ -10,9 +10,9 @@ const getPagination = (page, size) => {
 };
 
 const getPagingData = (data,limit,offset) => {
-  const { count: totalItems, rows: answers } = data;
+  const { count: totalItems, rows: items } = data;
   
-  return { total:totalItems, data:{answers}, limit, skip:offset };
+  return { total:totalItems, data:{items}, limit, skip:offset };
 };
 
 
@@ -35,7 +35,7 @@ exports.findAll = (req, res) => {
  
 
 
-  Answers.findAndCountAll({ where: condition, limit, offset })
+  Items.findAndCountAll({ where: condition, limit, offset })
     .then(data => {
       const response = getPagingData(data, limit, offset);
       res.send(response);
@@ -43,120 +43,122 @@ exports.findAll = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving answers."
+          err.message || "Some error occurred while retrieving items."
       });
     });
 };
 
-// Create and Save a new Answers
+// Create and Save a new Items
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.answers) {
+  if (!req.body.nama_item) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
     return;
   }
 
-  // Create a Answers
-  const answer = {
-    answers: req.body.answers,
-    score: req.body.score,
-    user_id: req.body.user_id,
+  // Create a Items
+  const item = {
+    nama_item: req.body.nama_item,
+    unit: req.body.unit,
+    stok: req.body.stok,
+    harga_satuan: req.body.harga_satuan,
+    barang: req.body.barang,
   };
 
-  // Save Answers in the database
-  Answers.create(answer)
-    .then(answers => {
+  // Save Items in the database
+  Items.create(item)
+    .then(item => {
       res.send(
-        { message: "Answer was Created successfully!" ,data:{answers}});
+        { message: "Items was Created successfully!" ,data:{item}});
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Answers."
+          err.message || "Some error occurred while creating the Items."
       });
     });
 };
 
-// Find a single Answers with an id
+// Find a single Items with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Answers.findByPk(id)
+  Items.findByPk(id)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Answers with id=" + id
+        message: "Error retrieving Items with id=" + id
       });
     });
 };
 
-// Update a Answers by the id in the request
+// Update a Items by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Answers.update(req.body, {
+  Items.update(req.body, {
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Answers was updated successfully."
+          message: "Items was updated successfully."
         });
       } else {
         res.send({
-          message: `Cannot update Answers with id=${id}. Maybe Answers was not found or req.body is empty!`
+          message: `Cannot update Items with id=${id}. Maybe Items was not found or req.body is empty!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Answers with id=" + id
+        message: "Error updating Items with id=" + id
       });
     });
 };
 
-// Delete a Answers with the specified id in the request
+// Delete a Items with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Answers.destroy({
+  Items.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Answers was deleted successfully!"
+          message: "Items was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Answers with id=${id}. Maybe Answers was not found!`
+          message: `Cannot delete Items with id=${id}. Maybe Items was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Answers with id=" + id
+        message: "Could not delete Items with id=" + id
       });
     });
 };
 
-// Delete all Answers from the database.
+// Delete all Items from the database.
 exports.deleteAll = (req, res) => {
-  Answers.destroy({
+  Items.destroy({
     where: {},
     truncate: false
   })
     .then(nums => {
-      res.send({ message: `${nums} Answers were deleted successfully!` });
+      res.send({ message: `${nums} Items were deleted successfully!` });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all answers."
+          err.message || "Some error occurred while removing all items."
       });
     });
 };
